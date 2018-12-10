@@ -60,4 +60,8 @@ KRB5_FILENAME=$(echo $KRB5CCNAME | sed 's|^FILE:||')
 if [ $(get_data SLAVE_JAR) = "false" ] ; then scp -p $SSH_OPTS ${HOME}/slave.jar $TARGET:$WORKSPACE/slave.jar ; fi
 scp -p $SSH_OPTS ${KRB5_FILENAME} $TARGET:/tmp/krb5cc_${REMOTE_USER_ID}
 rm -f ${KRB5_FILENAME}
-ssh $SSH_OPTS $TARGET "KRB5CCNAME=FILE:/tmp/krb5cc_${REMOTE_USER_ID} java -jar $WORKSPACE/slave.jar -jar-cache $WORKSPACE/tmp"
+extra_env=KRB5CCNAME=FILE:/tmp/krb5cc_${REMOTE_USER_ID}
+case $(get_data SHELL) in
+  */tcsh|*/csh) extra_env="env ${extra_env}" ;;
+esac
+ssh $SSH_OPTS $TARGET "${extra_env} java -jar $WORKSPACE/slave.jar -jar-cache $WORKSPACE/tmp"
