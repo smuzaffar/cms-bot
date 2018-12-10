@@ -3,7 +3,8 @@ SCRIPT_DIR=$(cd $(dirname $0); /bin/pwd)
 
 JENKINS_SLAVE_JAR_MD5="$1"
 WORKSPACE="$2"
-CLEANUP_WORKSPACE="$3"
+DOCKER_IMG_HOST="$3"
+CLEANUP_WORKSPACE="$4"
 if [ "X$WORKSPACE" = "X" ] ; then echo DATA_ERROR="Missing workspace directory." ;  exit 1; fi
 if [ "${CLEANUP_WORKSPACE}" = "true" ] ; then rm -rf $WORKSPACE ; fi
 mkdir -p $WORKSPACE/tmp $WORKSPACE/workspace
