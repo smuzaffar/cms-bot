@@ -10,6 +10,8 @@ if [ "${CLEANUP_WORKSPACE}" = "true" ] ; then rm -rf $WORKSPACE ; fi
 mkdir -p $WORKSPACE/tmp $WORKSPACE/workspace
 rm -f $WORKSPACE/cmsos
 
+echo "DATA_SHELL=${SHELL}"
+
 slave_jar=false
 if [ -e $WORKSPACE/slave.jar ] ; then
   if [ "$(md5sum $WORKSPACE/slave.jar | sed 's| .*||')" = "$JENKINS_SLAVE_JAR_MD5" ] ; then
