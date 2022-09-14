@@ -130,7 +130,6 @@ CMSSW_L2 = {
   "soureek":          ["btv-pog"],
   "michael-pitt":     ["proton-pog"],
   "kshcheli":         ["proton-pog"],
-  "kandrosov":        ["tau-pog"],
   "alebihan":         ["tau-pog"],
   "slava77":          ["tracking-pog"],
   "mmusich":          ["tracking-pog"],
