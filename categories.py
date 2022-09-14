@@ -75,7 +75,6 @@ CMSSW_L2 = {
   "sbein":            ["fastsim"],
   "SiewYan":          ["generators"], 
   "smorovic":         ["daq"],
-  "smuzaffar":        ["core"],
   "srimanob":         ["upgrade"],
   "ssekmen":          ["fastsim"],
   "yuanchao":         ["alca"],
