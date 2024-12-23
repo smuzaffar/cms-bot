@@ -34,4 +34,5 @@ pushd $CMSSW_BASE
     $script -l $CMSSW_RELEASE_BASE/lib/${SCRAM_ARCH}/scram_x86-64-v2/libDataFormatsHGCDigi.so -x $xml
   popd
 popd ) >>${log} 2>&1 || true
+cat $log
 mv $log .
